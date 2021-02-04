@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+
+<header>
+  <div class="mid">
+    <li>Örnek Taksi - Duman Kaya İkon</li>
+    <li>7/24 & Güvenilir</li>
+  </div>
+  <div class="number">
+    <li>0216 324 17 60</li>
+    <li>0216 315 69 54</li>
+    <li>0534 380 32 00</li>
+  </div>
+  <div class="write">
+    <h1>Şikayetlerinizi Bizlere , Memnuniyetinizi Dostlarınıza Anlatınız</h1>
+  </div>
+
+
+  
+</header>
+
+
+
+
+  <div class="comments">
+    <form class="comment-form" method="post">
+      {% csrf_token %}
+      <input name="comment_content" type="text" class="comment-form-text" placeholder="Mesajınız..."></input>
+      <button type="submit" class="comment-form-btn">Gönder</button>
+    </form>
+    {% for comment in comments %}
+    <div class="com" >
+      <p>{{comment.comment_content}}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+
+
+  
+
+
+{% endblock body %}
